@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "A Node-Red nodeton convert an RTSP stream to an MJPEG stream",
     "dependencies": {
+        "rtsp-ffmpeg": "^0.0.17"
     },
     "author": {
         "name": "Bart Butenaers"
