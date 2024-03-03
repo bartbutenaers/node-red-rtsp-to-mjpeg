@@ -1,0 +1,25 @@
+{
+    "name": "@bartbutenaers/node-red-rtsp-to-mjpeg",
+    "version": "1.0.0",
+    "description": "A Node-Red nodeton convert an RTSP stream to an MJPEG stream",
+    "dependencies": {
+    },
+    "author": {
+        "name": "Bart Butenaers"
+    },
+    "license": "Apache-2.0",
+    "keywords": ["node-red", "rtsp", "mjpeg", "stream", "ffmpeg", "video"],
+    "bugs": {
+        "url": "https://github.com/bartbutenaers/node-red-rtsp-to-mjpeg/issues"
+    },
+    "homepage": "https://github.com/bartbutenaers/node-red-rtsp-to-mjpeg",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bartbutenaers/node-red-rtsp-to-mjpeg.git"
+    },
+    "node-red": {
+        "nodes": {
+            "rtsp2mjpeg": "rtsp2mjpeg.js"
+        }
+    }
+}
