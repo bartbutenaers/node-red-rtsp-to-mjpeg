@@ -1,0 +1,106 @@
+<script type="text/javascript">
+    RED.nodes.registerType('rtsp2mjpeg', {
+        category: 'video',
+        color: '#a6bbcf',
+        defaults: {
+            url: { value: '', required: true },
+            username: { value: '', required: true },
+            password: { value: '', required: true },
+            rate: { value: null },
+            quality: { value: null },
+            resolution: { value: null }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'font-awesome/fa-video-camera',
+        label: function () {
+            return this.name || 'rtsp2mjpeg';
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="rtsp2mjpeg">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-url"><i class="fa fa-globe"></i> URL</label>
+        <input id="node-input-url" type="text" pattern="rtsp://.*" placeholder="rtsp://">
+    </div>
+    <div class="form-row">
+        <label for="node-input-username"><i class="fa fa-user"></i> Username</label>
+        <input type="text" id="node-input-username">
+    </div>
+    <div class="form-row">
+        <label for="node-input-password"><i class="fa fa-lock"></i> Password</label>
+        <input type="password" id="node-input-password">
+    </div>
+    <div class="form-row">
+        <label for="node-input-rate"><i class="fa fa-tachometer"></i> Frame rate</label>
+        <input type="number" id="node-input-rate" min="1" step="1">
+    </div>
+    <div class="form-row">
+        <label for="node-input-quality"><i class="fa fa-low-vision"></i> Quality</label>
+        <input type="number" id="node-input-quality" min="1" step="1">
+    </div>
+    <div class="form-row">
+        <label for="node-input-resolution"><i class="fa fa-th"></i> Resolution</label>
+        <input type="text" id="node-input-resolution" pattern="\d+x\d+" placeholder="<width>x<height>" />
+    </div>
+</script>
+
+<script type="text/html" data-help-name="rtsp2mjpeg">
+    <p>Connects to a specified URL using the RTSP protocol, and converts the RTSP stream to an MJPEG stream.</p>
+
+    <h3>Properties</h3>
+    <dl class="node-properties">
+        <dt>url
+            <span class="property-type">string</span>
+        </dt>
+        <dd>The URL to connect to in the format rtsp://xxx (required).</dd>
+        <dt class="optional">username
+            <span class="property-type">string</span>
+        </dt>
+        <dd>The username for authentication (optional).</dd>
+        <dt class="optional">password
+            <span class="property-type">string</span>
+        </dt>
+        <dd>The password for authentication (optional).</dd>
+        <dt class="optional">rate
+            <span class="property-type">number</span>
+        </dt>
+        <dd>The frame rate (i.e. number of images per second) at which the action is performed (optional).</dd>
+        <dt class="optional">quality
+            <span class="property-type">string</span>
+        </dt>
+        <dd>The quality setting of the output images.</dd>
+        <dt class="optional">resolution
+            <span class="property-type">string</span>
+        </dt>
+        <dd>The resolution setting of the output images.</dd>
+    </dl>
+
+    <h3>Inputs</h3>
+    <ul class="node-ports">
+        <li>Topic "start_conversion"
+            <p>Starts the RTSP to MJPEG conversion process.</p>
+        </li>
+        <li>Topic "stop_conversion"
+            <p>Stops the active RTSP to MJPEG conversion process.</p>
+        </li>
+    </ul>
+
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+        <li>Standard output
+            <dl class="message-properties">
+                <dt>payload <span class="property-type">buffer</span></dt>
+                <dd>The jpeg image as buffer.</dd>
+            </dl>
+        </li>
+    </ol>
+
+    <h3>Details</h3>
+    <p>The node connects to the specified RTSP URL, and starts converting it to MJPEG.</p>
+</script>
