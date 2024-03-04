@@ -12,7 +12,7 @@
         },
         inputs: 1,
         outputs: 1,
-        icon: 'font-awesome/fa-video-camera',
+        icon: 'font-awesome/fa-film',
         label: function () {
             return this.name || 'rtsp2mjpeg';
         }
@@ -82,14 +82,16 @@
     </dl>
 
     <h3>Inputs</h3>
-    <ul class="node-ports">
-        <li>Topic "start_conversion"
-            <p>Starts the RTSP to MJPEG conversion process.</p>
-        </li>
-        <li>Topic "stop_conversion"
-            <p>Stops the active RTSP to MJPEG conversion process.</p>
-        </li>
-    </ul>
+    <dl class="message-properties">
+        <dt>topic
+            <span class="property-type">string</span>
+        </dt>
+        <dd> the payload of the message to publish. </dd>
+        <ul>
+            <li><span><i>start_conversion</i>: starts the RTSP to MJPEG conversion process.</span></li>
+            <li><span><i>stop_conversion</i>: stops the RTSP to MJPEG conversion process.</span>
+        </ul>
+    </dl>
 
     <h3>Outputs</h3>
     <ol class="node-ports">
