@@ -1,10 +1,10 @@
-# node-red-rtsp-to-ffmpeg
+# @bartbutenaers/node-red-rtsp-to-ffmpeg
 A Node-RED node to convert an RTSP stream to an MJPEG stream
 
 ## Install
 Run the following npm command in your Node-RED user directory (typically ~/.node-red):
 ```
-npm install node-red-contrib-rtsp-to-mjpeg
+npm install @bartbutenaers/node-red-contrib-rtsp-to-mjpeg
 ```
 
 ## Support my Node-RED developments
